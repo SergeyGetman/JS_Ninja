@@ -1,0 +1,12 @@
+.moon-ins {
+	color: white;
+	margin: 50% auto;
+	width: max-content;
+	display: block;
+	height: 100vh;
+}
+
+.moon-ins:hover {
+	cursor: pointer;
+	color: rgb(171, 164, 151);
+}
