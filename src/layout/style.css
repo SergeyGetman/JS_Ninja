@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 .moon-ins {
 	color: white;
 	margin: 50% auto;
@@ -9,4 +14,14 @@
 .moon-ins:hover {
 	cursor: pointer;
 	color: rgb(171, 164, 151);
+}
+
+.header-block {
+	height: 100px;
+	background-color: rgb(160, 158, 153);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 22px;
+	font-weight: 700;
 }
