@@ -4,12 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/layout/style.css">
     <title>Document</title>
 </head>
 
+
 <body>
+
+    <header>
+
+        <div class="header-block" id="head-Id"></div>
+
+
+    </header>
     <h1>LESSONS BLOCK</h1>
     <h2>checkout developer</h2>
 </body>
 
 </html>
+
+
+<script type="module">
+
+    const dataGeneral = {
+        headerArr: [
+            {
+                key: 0,
+                className: 'header-class',
+                title: 'CLASS'
+            },
+            {
+                key: 1,
+                className: 'header-function',
+                title: 'FUNCTION'
+            },
+            {
+                key: 2,
+                className: 'header-component',
+                title: 'COMPONENTS'
+            },
+            {
+                key: 3,
+                className: 'header-list-type',
+                title: 'TYPES'
+            },
+            {
+                key: 4,
+                className: 'header-list-context',
+                title: 'CONTEXT'
+            }
+        ]
+    };
+
+
+
+    const { headerArr } = dataGeneral;
+
+    function showContentHeader(data) {
+
+        const headerBlock = document.getElementById("head-Id");
+        data.map((el, idx) => {
+            const someDiv = document.createElement('div');
+            someDiv.textContent = el.title;
+            someDiv.className = el.className;
+            someDiv.active = idx
+            headerBlock.appendChild(someDiv)
+
+        })
+        return headerBlock;
+    }
+
+
+    showContentHeader(headerArr)
+
+</script>
