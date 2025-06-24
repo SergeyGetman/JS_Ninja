@@ -207,89 +207,389 @@ const doubleAfterAddOne = compose(double, addOne);
 
 //Task 1
 
-function checkEmail(email) {
-  const regExp = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/g);
-  const checkStr = regExp.test(email);
+// function checkEmail(email) {
+//   const regExp = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/g);
+//   const checkStr = regExp.test(email);
 
-  console.log("Task 1 result:", checkStr);
-}
+//   console.log("Task 1 result:", checkStr);
+// }
 
-checkEmail("iladiy21@gmail.com");
-checkEmail("iladiy21gmail.com");
-checkEmail("iladiy@gmailcom");
+// checkEmail("iladiy21@gmail.com");
+// checkEmail("iladiy21gmail.com");
+// checkEmail("iladiy@gmailcom");
+
+// // Task 2
+
+// function findDuplicates(str) {
+//   const regExp = new RegExp(/\b(\w+)\s+\1\b/gi);
+
+//   const newArr = str.match(regExp);
+
+//   console.log("Task 2 result:", newArr);
+// }
+
+// findDuplicates("Hello hello hi man");
+// findDuplicates("how are you You");
+
+// // Task 3
+
+// function changeFormat(str) {
+//   const regExp = new RegExp(/(\d{4})-(\d{2})-(\d{2})/g);
+
+//   const newStr = str.replace(regExp, "$3.$2.$1");
+//   console.log("Task 3 result:", newStr);
+// }
+
+// changeFormat("2024-06-19");
+// changeFormat("2025-06-24");
+
+// function getTags(str) {
+//   const regExp = new RegExp(/<.+?>/g);
+
+//   const newArr = str.match(regExp);
+
+//   console.log("Task 4 result:", newArr);
+// }
+
+// getTags("<div><p>Hello</p></div>");
+// getTags("<h1>Hello</h1>");
+// getTags("<article><div><h1>Hello</h1></div></article>");
+
+// // Homework Regular expressions
+
+// // 💡 Дополнительные задачи от меня
+// // Функция логирования
+// // Напиши функцию withLogging(fn), которая принимает функцию и возвращает новую, логирующую входные аргументы и результат выполнения.
+
+// function sum(a, b) {
+//   return a + b;
+// }
+
+// function withLogging(fn) {
+//   return function (...args) {
+//     console.log("Income args:", args);
+//     const result = fn(...args);
+//     console.log("Result:", result);
+
+//     return result;
+//   };
+// }
+
+// const loggedSum = withLogging(sum);
+// console.log(loggedSum(3, 4));
+
+// // Универсальная задержка
+// // Создай функцию delay(fn, ms), которая возвращает обертку над fn, вызывающую её через ms миллисекунд (используй setTimeout).
+
+// function delay(fn, ms) {
+//   return function (...args) {
+//     setTimeout(() => {
+//       const result = fn(...args);
+//       console.log("Result:", result);
+//     }, ms);
+//   };
+// }
+
+// const delayedAdd = delay(sum, 3000);
+
+// delayedAdd(2, 3);
+
+// Promises Homework
+
+// Task 1
+
+// function loadScript(src) {
+//   return new Promise((resolve, reject) => {
+//         const script = document.createElement("script");
+//         script.onload = resolve;
+//         script.onerror = reject;
+//         script.setAttribute("src", src);
+//         document.head.appendChild(script);
+//   });
+// }
+
+// Task 1
 
 // Task 2
 
-function findDuplicates(str) {
-  const regExp = new RegExp(/\b(\w+)\s+\1\b/gi);
+// function getData(url) {
+//   const p1 = new Promise(function (resolve, reject) {
+//     setTimeout(() => {
+//       fetch(url)
+//         .then((res) => res.json())
+//         .then((data) => resolve(data))
+//         .catch((err) => reject(err));
+//     }, 3000);
+//   });
 
-  const newArr = str.match(regExp);
+//   p1.then((data) => {
+//     console.log(data);
+//     return data;
+//   })
+//     .then((data) => {
+//       console.log(data);
+//       return data.filter((item) => item.id <= 4);
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// }
 
-  console.log("Task 2 result:", newArr);
-}
+// getData("https://jsonplaceholder.typicode.com/photos");
 
-findDuplicates("Hello hello hi man");
-findDuplicates("how are you You");
+// // Task 3
+
+// const p1 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 1000, "one");
+// });
+
+// const p2 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 2000, "two");
+// });
+
+// const p3 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 3000, "three");
+// });
+
+// Promise.all([p1, p2, p3]).then(
+//   (value) => {
+//     console.log(value);
+//   },
+//   (reason) => {
+//     console.log(reason);
+//   }
+// );
 
 // Task 3
 
-function changeFormat(str) {
-  const regExp = new RegExp(/(\d{4})-(\d{2})-(\d{2})/g);
+// Task 4
 
-  const newStr = str.replace(regExp, "$3.$2.$1");
-  console.log("Task 3 result:", newStr);
+// async function fetchData(url) {
+//   try {
+//     let response = await fetch(url);
+
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+
+//     let data = await response.json();
+//     let filtered = data.filter((item) => item.id <= 4);
+//     console.log(filtered);
+
+//     let badResponse = await fetch("https://bad.url");
+
+//     if (!badResponse.ok) {
+//       throw new Error(`HTTP error! status: ${badResponse.status}`);
+//     }
+//     let badData = await badResponse.json();
+//     let filteredBadData = badData.filter((item) => item.id <= 4);
+//     console.log(filteredBadData);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+
+// fetchData("https://jsonplaceholder.typicode.com/photos");
+// Task 4
+
+// Task 5
+
+// function timeout(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+// async function delayedLog(text, delay) {
+//   console.log("First:", text);
+//   await timeout(delay);
+
+//   console.log("Second:", text);
+//   await timeout(delay);
+
+//   console.log("Third:", text);
+//   await timeout(delay);
+// }
+
+// delayedLog("hello there", 3000);
+
+// Task 5
+
+// Task 6
+
+// Promise.race([p1, p2, p3]).then(function (value) {
+//   console.log(value);
+// });
+
+// Task 6
+
+// Task 7
+
+// function fakeFetch(url) {
+//   return new Promise((resolve, reject) => {
+//     const delay = Math.floor(Math.random() * (3000 - 500 + 1)) + 500;
+//     const isSuccess = Math.random() > 0.5;
+//     setTimeout(() => {
+//       if (isSuccess) {
+//         resolve(url);
+//       } else {
+//         reject(new Error("Network error"));
+//       }
+//     }, delay);
+//   });
+// }
+// Task 7
+
+// Promises Homework
+
+// Strings and Arrays
+
+// Task 1
+
+function countChars(str) {
+  let counters = {};
+
+  for (let char of str) {
+    counters[char] = (counters[char] || 0) + 1;
+  }
+
+  return counters;
 }
 
-changeFormat("2024-06-19");
-changeFormat("2025-06-24");
+let result = countChars("hello");
 
-function getTags(str) {
-  const regExp = new RegExp(/<.+?>/g);
+// Task 1
 
-  const newArr = str.match(regExp);
+// Task 2
 
-  console.log("Task 4 result:", newArr);
+function oftenWord(word) {
+  let lowerWord = word.toLowerCase();
+  let cleanedString = lowerWord.replace(/[.,]/g, "").split(" ");
+  let counters = {};
+
+  for (let word of cleanedString) {
+    counters[word] = (counters[word] || 0) + 1;
+  }
+
+  let maxCount = 0;
+  let mostFrequentWord = "";
+
+  for (let word in counters) {
+    if (counters[word] > maxCount) {
+      maxCount = counters[word];
+      mostFrequentWord = word;
+    }
+  }
+
+  return mostFrequentWord;
 }
 
-getTags("<div><p>Hello</p></div>");
-getTags("<h1>Hello</h1>");
-getTags("<article><div><h1>Hello</h1></div></article>");
+oftenWord("Hello man, hello dude");
 
-// Homework Regular expressions
+// Task 2
 
-// 💡 Дополнительные задачи от меня
-// Функция логирования
-// Напиши функцию withLogging(fn), которая принимает функцию и возвращает новую, логирующую входные аргументы и результат выполнения.
+// Task 3
 
-function sum(a, b) {
-  return a + b;
+function filterByWord(arr) {
+  let res = [];
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  for (let i = 0; i < arr.length; i++) {
+    let lowRegister = arr[i].toLowerCase();
+    for (let k = 0; k < vowels.length; k++) {
+      if (lowRegister.charAt(0) === vowels[k]) {
+        // Первый мой подход
+        res.push(lowRegister);
+      }
+    }
+  }
+
+  return res;
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   let lowRegister = arr[i].toLowerCase();
+  //   if (vowels.includes(lowRegister.charAt(0))) {
+  //     res.push(lowRegister);
+  //   }
+  // }
+
+  // return res;
+
+  // let filtered = arr.filter(str => /^[aeiou]/i.test(str));
+
+  // return filtered
 }
 
-function withLogging(fn) {
-  return function (...args) {
-    console.log("Income args:", args);
-    const result = fn(...args);
-    console.log("Result:", result);
+filterByWord(["hi", "aloha", "andor", "football", "HELLO", "ALODA"]);
 
-    return result;
-  };
+// Task 3
+
+// Task 4
+
+function filterByLength(arr) {
+  return arr.sort((a, b) => b.length - a.length);
 }
 
-const loggedSum = withLogging(sum);
-console.log(loggedSum(3, 4));
+filterByLength(["hisadadas", "aloha", "andor", "football", "HELLO", "ALODA"]);
 
-// Универсальная задержка
-// Создай функцию delay(fn, ms), которая возвращает обертку над fn, вызывающую её через ms миллисекунд (используй setTimeout).
+// Task 4
 
-function delay(fn, ms) {
-  return function (...args) {
-    setTimeout(() => {
-      const result = fn(...args);
-      console.log("Result:", result);
-    }, ms);
-  };
+// Task 6
+
+function sumOfStr(str) {
+  let splitedStr = str.split("");
+  let filteredStr = splitedStr.filter((item) => /[0-9]/g.test(item));
+
+  let sum = 0;
+
+  for (let num of filteredStr) {
+    // Это мой первый подход
+    sum += +num;
+  }
+
+  // let reduced = filteredStr.reduce((acc, curr) => +acc + +curr, sum);
+
+  return sum;
 }
 
-const delayedAdd = delay(sum, 3000);
+sumOfStr("a1b2c3");
 
-delayedAdd(2, 3);
+// Task 6
+
+// Task 7
+
+function checkWord(word1, word2) {
+  if (word1.length !== word2.length) {
+    return false;
+  }
+
+  const normalizeWord1 = word1.toLowerCase().split("").sort().join("");
+  const normalizeWord2 = word2.toLowerCase().split("").sort().join("");
+
+  if (normalizeWord1 === normalizeWord2) {
+    console.log("It's anagramm");
+  } else {
+    console.log("It's not anagramm");
+  }
+}
+
+checkWord("listen", "silent");
+
+// Task 7
+
+// Task 8
+
+function findUnique(arr) {
+  // let filtered = arr.filter((item, i) => arr.indexOf(item) === i); // Мой первый подход
+  let reduced = arr.reduce(
+    (acc, curr) => (acc.includes(curr) ? acc : [...acc, curr]),
+    []
+  );
+
+  console.log(reduced);
+}
+
+findUnique(["hello", "hi", "hello", "privet", "zdarova", "ku", "hi"]);
+
+// Task 8
