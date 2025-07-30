@@ -23,12 +23,29 @@
 
         <div class="header-list-btn">
 
-            <button type="submit" class="btn btn-primary">Sign In</button>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary" onclick="hideForm()">Sign In</button>
+            <button type="submit" class="btn btn-primary" onclick="signIn()">Login</button>
+
+        </div>
+        <div class="show-spiner" id="spinnerId" style="display: none;">
+            <div class="spinner-grow text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+
+            </div>
+            <div class="spinner-grow text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+
+            </div>
+            <div class="spinner-grow text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+
+            </div>
         </div>
         <div class="form-content">
 
-            <form>
+
+
+            <form id="formID">
                 <div class="mb-3">
                     <label for="email-label" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

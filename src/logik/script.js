@@ -1,10 +1,10 @@
 function getData(ev) {
-  ev.preventDefault();
-  console.log("EV", ev);
+	ev.preventDefault();
+	console.log('EV', ev);
 }
 
 function goAheadLessons() {
-  return (window.location.href = "./lessons.html");
+	return (window.location.href = './src/logik/autorized/formreg.html');
 }
 
 // function validateHello(greetings) {
@@ -140,8 +140,8 @@ function goAheadLessons() {
 // account.#balance;
 
 class Rectangle {
-  constructor(width, height) {
-    this.width = width;
-    this.height = height;
-  }
+	constructor(width, height) {
+		this.width = width;
+		this.height = height;
+	}
 }
