@@ -73,3 +73,7 @@ form label {
 	align-items: center;
 	margin-top: 33%;
 }
+
+.error-handler {
+	color: red !important;
+}

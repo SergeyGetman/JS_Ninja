@@ -7,14 +7,31 @@ const updateFormData = {
 	password: ''
 };
 
+let checkValidState = false;
+
 function getFormData() {
 	const form = document.querySelector('form');
+
 	if (form) {
+		const btnSet = document.getElementById('submitBtn');
+
+		btnSet.addEventListener('click', function(event) {
+			const labelS = document.querySelectorAll('form label');
+			if (labelS) {
+				for (let i = 0; i < labelS.length; i++) {
+					labelS[i].classList.add('error-handler');
+				}
+			}
+
+			// form.requestSubmit();
+		});
 		updateFormData.nickName = form.elements.emailID.value;
 		updateFormData.password = form.elements.passwordID.value;
+		console.log('updateFormData', updateFormData);
+		form.checkValidity();
+		form.classList.add('was-validated');
 
 		form.reset();
-		hideForm();
 	}
 }
 

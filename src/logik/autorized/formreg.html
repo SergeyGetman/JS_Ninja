@@ -23,8 +23,8 @@
 
         <div class="header-list-btn">
 
-            <button type="submit" class="btn btn-primary" onclick="getFormData()">Sign In</button>
-            <button type="submit" class="btn btn-primary" onclick="signIn()">Login</button>
+            <button type="button" id="submitBtn" class="btn btn-primary" onclick="getFormData(event)">Sign In</button>
+            <button type="button" class="btn btn-primary" onclick="signIn()">Login</button>
 
         </div>
         <div class="show-spiner" id="spinnerId" style="display: none;">
@@ -44,25 +44,24 @@
         <div class="form-content">
 
 
-
-            <form id="formID" class=" needs-validation">
+            <form id="formID" class="needs-validation" novalidate>
                 <div class="mb-3">
-                    <label for="email-label" class="form-label">Email address</label>
+                    <label for="email-label" class="form-label ">Email address</label>
                     <input type="email" class="form-control" id="emailID" aria-describedby="emailHelp" required>
                     <div id="emailHelp" class="form-text">Enter Your E-mail Name.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input class="form-control" type="password" id="passwordID" name="password" autocomplete="true"
-                        required>
+                    <label for="exampleInputPassword1" class="form-label ">Password</label>
+                    <input class="form-control" minlength="5" type="password" id="passwordID" name="password"
+                        autocomplete="true" required>
                     <div id="emailHelp" class="form-text">Enter Your Password</div>
                 </div>
-                <div class="mb-3 form-check">
+                <div class="mb-3 form-check ">
                     <input type="checkbox" class="form-check-input" id="chekboxId">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label class="form-check-label " for="exampleCheck1">Check me out</label>
                 </div>
-
             </form>
+
 
 
         </div>
