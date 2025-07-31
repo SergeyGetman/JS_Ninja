@@ -13,7 +13,6 @@ function getFormData() {
 		updateFormData.nickName = form.elements.emailID.value;
 		updateFormData.password = form.elements.passwordID.value;
 
-		console.log('this is data', updateFormData);
 		form.reset();
 		hideForm();
 	}
