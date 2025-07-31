@@ -28,10 +28,21 @@ function getFormData() {
 		updateFormData.nickName = form.elements.emailID.value;
 		updateFormData.password = form.elements.passwordID.value;
 		console.log('updateFormData', updateFormData);
-		form.checkValidity();
-		form.classList.add('was-validated');
 
-		form.reset();
+		if (!updateFormData.nickName && !updateFormData.password) {
+			form.checkValidity();
+			form.classList.add('was-validated');
+		}
+
+		if (!!updateFormData.nickName && !!updateFormData.password) {
+			form.checkValidity();
+			form.classList.add('was-validated');
+			checkValidState = true;
+			form.reset();
+			if (checkValidState) {
+				hideForm();
+			}
+		}
 	}
 }
 
