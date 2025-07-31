@@ -23,7 +23,7 @@
 
         <div class="header-list-btn">
 
-            <button type="submit" class="btn btn-primary" onclick="hideForm()">Sign In</button>
+            <button type="submit" class="btn btn-primary" onclick="getFormData()">Sign In</button>
             <button type="submit" class="btn btn-primary" onclick="signIn()">Login</button>
 
         </div>
@@ -45,15 +45,15 @@
 
 
 
-            <form id="formID">
+            <form id="formID" class=" needs-validation">
                 <div class="mb-3">
                     <label for="email-label" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="emailID" aria-describedby="emailHelp" required>
                     <div id="emailHelp" class="form-text">Enter Your E-mail Name.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input class="form-control" type="password" id="password" name="password" autocomplete="true"
+                    <input class="form-control" type="password" id="passwordID" name="password" autocomplete="true"
                         required>
                     <div id="emailHelp" class="form-text">Enter Your Password</div>
                 </div>
