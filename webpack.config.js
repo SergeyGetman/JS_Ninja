@@ -2,9 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: './src/logik/autorized/script.js',
+	entry: {
+		formreg: './src/logik/autorized/script.js',
+		lessons: './src/logik/lessons/lessons.js'
+	},
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 		clean: true
 	},
@@ -24,12 +27,21 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './src/logik/autorized/formreg.html'
+			filename: 'formreg.html',
+			template: './src/logik/autorized/formreg.html',
+			chunks: [ 'formreg' ]
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'lessons.html',
+			template: './src/logik/lessons/lessons.html',
+			chunks: [ 'lessons' ]
 		})
 	],
 	devServer: {
 		static: './dist',
 		port: 3000,
-		open: true
+		open: {
+			target: [ 'formreg.html' ]
+		}
 	}
 };
