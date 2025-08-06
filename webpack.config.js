@@ -20,8 +20,11 @@ module.exports = {
 				use: [ 'style-loader', 'css-loader' ]
 			},
 			{
-				test: /\.(png|jpg|jpeg|gif|svg)$/i,
-				type: 'asset/resource'
+				test: /\.(png|jpe?g|gif|svg|webm|mp4)$/i,
+				type: 'asset/resource',
+				generator: {
+					filename: 'assets/[name][ext]'
+				}
 			}
 		]
 	},
