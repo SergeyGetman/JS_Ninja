@@ -5,22 +5,23 @@ function signIn() {
 	alert('the implementation is not ready yet');
 }
 
+const form = document.querySelector('form');
+
 const updateFormData = {
-	nickName: 'admin@admin.com',
-	password: '12345'
+	nickName: MOCK_DATA.entered.nickName,
+	password: MOCK_DATA.entered.password
 };
 
 let checkValidState = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-	const { nickName, password } = MOCK_DATA.entered;
-
 	const submitBtn = document.getElementById('submitBtn');
 	const loginBtn = document.getElementById('loginBtn');
 
 	submitBtn.addEventListener('click', function(ev) {
 		if (ev) {
 			const checkLabelStatus = document.getElementById('invalidCheck');
+			form.classList.add('error-handler');
 			if (checkLabelStatus && checkLabelStatus) {
 				checkLabelStatus.style.color = 'red';
 				getFormData();
@@ -31,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getFormData() {
-	const form = document.querySelector('form');
 	const checkBox = document.getElementById('chekboxId');
 	const checkLabel = document.querySelector('.form-check-label');
 
@@ -47,7 +47,7 @@ function getFormData() {
 	if (form) {
 		const btnSet = document.getElementById('submitBtn');
 
-		btnSet.addEventListener('click', function(event) {
+		btnSet.addEventListener('click', function() {
 			const labelS = document.querySelectorAll('form label');
 			if (labelS) {
 				for (let i = 0; i < labelS.length; i++) {
@@ -55,24 +55,22 @@ function getFormData() {
 				}
 			}
 		});
+		const { entered } = MOCK_DATA;
 		updateFormData.nickName = form.elements.emailID.value;
 		updateFormData.password = form.elements.passwordID.value;
 		console.log('updateFormData', updateFormData);
 
-		if (!updateFormData.nickName && !updateFormData.password) {
+		if (updateFormData.nickName === entered.nickName || updateFormData.password === entered.password) {
 			form.checkValidity();
 			form.classList.add('error-handler');
-			form.classList.add('was-validated');
-		}
-
-		if (!!updateFormData.nickName && !!updateFormData.password) {
-			form.checkValidity();
 			form.classList.add('was-validated');
 			checkValidState = true;
 			form.reset();
 			if (checkValidState) {
 				hideForm();
 			}
+		} else {
+			alert('DATA ICORECT');
 		}
 	}
 }
