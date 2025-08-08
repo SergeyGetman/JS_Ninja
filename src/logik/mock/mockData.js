@@ -28,6 +28,12 @@ const dataGeneral = {
 	]
 };
 
+const enterdMock = {
+	nickName: 'admin@admin.com',
+	password: '12345'
+};
+
 export const MOCK_DATA = {
-	header: dataGeneral
+	header: dataGeneral,
+	entered: enterdMock
 };

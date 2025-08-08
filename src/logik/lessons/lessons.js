@@ -48,7 +48,7 @@ function showContentHeader(data) {
 	data.map((el, idx) => {
 		const someDiv = document.createElement('div');
 		someDiv.textContent = el.title;
-		someDiv.className = `${el.className} hover-block`; // добавляем hover-класс
+		someDiv.className = `${el.className} hover-block`;
 		someDiv.dataset.active = idx;
 		headerBlock.appendChild(someDiv);
 	});

@@ -13,10 +13,20 @@ const updateFormData = {
 let checkValidState = false;
 
 document.addEventListener('DOMContentLoaded', () => {
+	const { nickName, password } = MOCK_DATA.entered;
+
 	const submitBtn = document.getElementById('submitBtn');
 	const loginBtn = document.getElementById('loginBtn');
 
-	submitBtn.addEventListener('click', getFormData);
+	submitBtn.addEventListener('click', function(ev) {
+		if (ev) {
+			const checkLabelStatus = document.getElementById('invalidCheck');
+			if (checkLabelStatus && checkLabelStatus) {
+				checkLabelStatus.style.color = 'red';
+				getFormData();
+			}
+		}
+	});
 	loginBtn.addEventListener('click', signIn);
 });
 
@@ -44,8 +54,6 @@ function getFormData() {
 					labelS[i].classList.add('error-handler');
 				}
 			}
-
-			// form.requestSubmit();
 		});
 		updateFormData.nickName = form.elements.emailID.value;
 		updateFormData.password = form.elements.passwordID.value;
@@ -53,6 +61,7 @@ function getFormData() {
 
 		if (!updateFormData.nickName && !updateFormData.password) {
 			form.checkValidity();
+			form.classList.add('error-handler');
 			form.classList.add('was-validated');
 		}
 
@@ -80,7 +89,6 @@ const hideForm = () => {
 };
 
 const { header } = MOCK_DATA;
-console.log('header', header);
 
 window.getFormData = getFormData;
 window.signIn = signIn;
