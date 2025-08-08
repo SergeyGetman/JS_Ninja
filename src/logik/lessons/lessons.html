@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FRONTEND 2025</title>
     <link rel="icon" type="image/x-icon" href="./src/logik/statik/images/rediance_sec.jpg">
-    <link rel="stylesheet" href="./src/layout/style.css">
-    <link rel="stylesheet" href="./src/layout/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    <!-- <link rel="stylesheet" href="./src/layout/style.css">
+    <link rel="stylesheet" href="./src/layout/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> -->
     </script>
-    <script src="./src/logik/bootstrap.min.js"></script>
+    <!-- <script src="./src/logik/bootstrap.min.js"></script> -->
     <title>Document</title>
 </head>
 
@@ -29,7 +29,7 @@
     <section>
         <div class="col img-col">
             <div class="video_wrap"><video autoplay muted loop>
-                    <source src="./src/logik/statik/images/info-video.webm" type="video/webm">
+
                 </video></div>
         </div>
     </section>
@@ -938,58 +938,3 @@
 </body>
 
 </html>
-
-
-<script type="module">
-
-    const dataGeneral = {
-        headerArr: [
-            {
-                key: 0,
-                className: 'header-class',
-                title: 'CLASS'
-            },
-            {
-                key: 1,
-                className: 'header-function',
-                title: 'FUNCTION'
-            },
-            {
-                key: 2,
-                className: 'header-component',
-                title: 'COMPONENTS'
-            },
-            {
-                key: 3,
-                className: 'header-list-type',
-                title: 'TYPES'
-            },
-            {
-                key: 4,
-                className: 'header-list-context',
-                title: 'CONTEXT'
-            }
-        ]
-    };
-
-
-
-    const { headerArr } = dataGeneral;
-
-    function showContentHeader(data) {
-
-        const headerBlock = document.getElementById("head-Id");
-        data.map((el, idx) => {
-            const someDiv = document.createElement('div');
-            someDiv.textContent = el.title;
-            someDiv.className = `${el.className} hover-block`; // добавляем hover-класс
-            someDiv.dataset.active = idx;
-            headerBlock.appendChild(someDiv);
-        });
-        return headerBlock;
-    }
-
-
-    showContentHeader(headerArr)
-
-</script>
